@@ -1,15 +1,6 @@
-<?php
-header('Access-Control-Allow-Origin: *');
-header('Content-Type: application/json');
-require_once 'db.php';
-$data = json_decode(file_get_contents('php://input'), true);
-$db = getDB();
-$stmt = $db->prepare("SELECT * FROM users WHERE username = ?");
-$stmt->execute([$data['id']]);
-$user = $stmt->fetch();
-if ($user) {
-echo json_encode(array('success' => true, 'tier' => 'Standard'));
-} else {
-echo json_encode(array('success' => false, 'error' => 'Invalid login'));
-}
-?>
+cursor.execute("SELECT id FROM users WHERE id = ?", (user_id,))
+cursor.execute("SELECT id FROM users WHERE id = %s", (user_id,))
+cursor.execute("SELECT id, password, tier FROM users WHERE id = ?", (user_id,))
+cursor.execute("SELECT id, password, tier FROM users WHERE id = %s", (user_id,))
+cursor.execute("INSERT INTO users (id, password) VALUES (?, ?)", (user_id, password))
+cursor.execute("INSERT INTO users (id, password) VALUES (%s, %s)", (user_id, password))
