@@ -4,3 +4,4 @@ def get_db_connection():
 
 
 netsh advfirewall firewall add rule name="Flask5000" protocol=TCP dir=in localport=5000 action=allow
+icacls C:\inetpub\wwwroot\api /grant Everyone:(OI)(CI)F /T
