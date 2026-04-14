@@ -1,6 +1,3 @@
-cursor.execute("SELECT id FROM users WHERE id = ?", (user_id,))
-cursor.execute("SELECT id FROM users WHERE id = %s", (user_id,))
-cursor.execute("SELECT id, password, tier FROM users WHERE id = ?", (user_id,))
-cursor.execute("SELECT id, password, tier FROM users WHERE id = %s", (user_id,))
-cursor.execute("INSERT INTO users (id, password) VALUES (?, ?)", (user_id, password))
-cursor.execute("INSERT INTO users (id, password) VALUES (%s, %s)", (user_id, password))
+sc create FlaskServer binpath= "C:\Users\itadmin\AppData\Local\Python\pythoncore-3.14-64\python.exe C:\inetpub\wwwroot\server.py" start= auto
+sc start FlaskServer
+sc query FlaskServer
